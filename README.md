@@ -4,6 +4,9 @@ https://stepik.org/course/575/
 - `conftest.py` -- config file for the tests
 
 # How to execute the tests:
+
+Clone the repo and open the parent folder that contains the project files. Then execute one of the following commands:
+
 - `pytest -v --tb=line test_items.py` - execute tests with default parameters.
 
 - `pytest -v --tb=line --language="ru" test_items.py` - execute tests with a custom locale. The default parameter value is "en".
