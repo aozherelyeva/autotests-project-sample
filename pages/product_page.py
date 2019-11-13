@@ -13,4 +13,4 @@ class ProductPage(BasePage):
     def name_added_should_be_correct(self):
         item_name = self.browser.find_element(*ProductPageLocators.ITEM_NAME).text
         added_item_name = self.browser.find_element(*ProductPageLocators.ITEM_NAME_IN_MESSAGE).text
-        assert item_name in added_item_name, "The added item's name is not corresponding with the item's name"
+        assert item_name == added_item_name, "The added item's name is not corresponding with the item's name"
