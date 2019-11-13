@@ -14,3 +14,9 @@ class ProductPage(BasePage):
         item_name = self.browser.find_element(*ProductPageLocators.ITEM_NAME).text
         added_item_name = self.browser.find_element(*ProductPageLocators.ITEM_NAME_IN_MESSAGE).text
         assert item_name == added_item_name, "The added item's name is not corresponding with the item's name"
+
+    def no_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE)
+
+    def success_message_is_disappeared(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE)
