@@ -17,10 +17,8 @@ def test_guest_can_go_to_login_page_from_product_page(browser, link):
     page = ProductPage(browser, link)
     page.open()
     page.should_be_login_link()
-    page.go_to_login_page()
-    link = browser.current_url
-    page = LoginPage(browser, link)
-    page.should_be_login_page()
+    login_page = page.go_to_login_page()
+    login_page.should_be_login_page()
 
 
 @pytest.mark.parametrize('link', [product_base_link])
