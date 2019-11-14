@@ -17,6 +17,7 @@ class TestLoginFromProductPage:
         page.should_be_login_link()
 
     @pytest.mark.parametrize('link', [product_base_link])
+    @pytest.mark.need_review
     def test_guest_can_go_to_login_page_from_product_page(self, browser, link):
         page = ProductPage(browser, link)
         page.open()
@@ -38,6 +39,7 @@ class TestUserAddToBasketFromProductPage:
         login_page.should_be_authorized_user()
 
     @pytest.mark.parametrize('link', [product_base_link])
+    @pytest.mark.need_review
     def test_user_can_add_product_to_basket(self, browser, link):
         page = ProductPage(browser, link)
         page.open()
@@ -53,6 +55,7 @@ class TestUserAddToBasketFromProductPage:
 
 
 @pytest.mark.parametrize('link', [product_base_link])
+@pytest.mark.need_review
 def test_guest_can_add_product_to_basket(self, browser, link):
     page = ProductPage(browser, link)
     page.open()
@@ -87,6 +90,7 @@ def test_message_disappeared_after_adding_product_to_basket(browser, link):
 
 
 @pytest.mark.parametrize('link', [product_base_link])
+@pytest.mark.need_review
 def test_guest_cant_see_product_in_basket_opened_from_product_page(browser, link):
     page = ProductPage(browser, link)
     page.open()
