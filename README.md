@@ -1,14 +1,66 @@
-A repo for Stepik test automation course.
-https://stepik.org/course/575/
+# How to execute the tests (Linux_OS_Settings):
 
-- `conftest.py` -- config file for the tests
+1. Install python 3.7:
 
-# How to execute the tests:
+	```bash
+	sudo apt-get update
+	sudo apt-get upgrade
+	sudo apt-get install python3.7
+	```
 
-Clone the repo and open the parent folder that contains the project files. Then execute one of the following commands:
+2. Install pip:
 
-- `pytest -v --tb=line test_items.py` - execute tests with default parameters.
+	```bash
+	python3 -m pip install pip
+	```
 
-- `pytest -v --tb=line --language="ru" test_items.py` - execute tests with a custom locale. The default parameter value is "en".
+3. Create a virtual environment:
 
-- `pytest -v --tb=line --browser=firefox --language="fr" test_items.py` - execute the test in a specific browser with a custom language parameter. The defult browser is Chrome. You can select `chrome` or `firefox`.
+	```bash
+	sudo apt-get install -y python3.7-venv
+	mkdir ~/env
+	cd ~/env
+	python3 -m venv selenium
+	```
+
+4. Activate a virtual environment:
+
+	```bash
+	cd ~/env
+	source selenium/bin/activate
+	```
+
+5. Install the necessary environment requirements (libraries, modules, packages etc.):
+
+	```bash
+	pip install -r requirements.txt
+	```
+	
+6. Execute the tests from the terminal via the command:
+
+	```bash
+	pytest -v --tb=line <test_name.py>
+	```
+	
+	The parameter `--tb=line` shortens the log with the test results.
+	The parameter `--reruns N` can be used for rerunning the failed tests, where N is the number of the reruns.
+	
+	You can initialize custom marks in pytest.ini.
+	
+	Add the following parameter into command line when executong the tests to perform the ones with a certain mark:
+	
+	```bash
+	-m <marking name>
+	```
+	
+   - The key `-k` can be added to execute separate tests:
+
+	```bash
+	-k <test_name>
+	```
+
+7. To finish the work or before switching to another prject you need to deactivate the virtual environment:
+
+	```bash
+	deactivate
+	```
